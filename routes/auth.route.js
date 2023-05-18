@@ -6,6 +6,8 @@ const authRouter = require('express').Router();
 
 const register = require('../controller/auth/register');
 const login = require('../controller/auth/login');
+const verifysession = require('../controller/auth/verifysession');
+const authenticate = require('../controller/auth/authenticate');
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -32,5 +34,10 @@ const createPasswordChain = () => body('password').trim().notEmpty().escape().wi
 authRouter.post('/register',createNameChain(),createEmailChain(),createPasswordChain(),register);
 
 authRouter.post('/login',createEmailChain(),createPasswordChain(),login);
+
+authRouter.post('/authenticate', verifysession, authenticate);
+// authRouter.post('/sessionverify', sessionverify, (req, res) => {
+//   res.lo
+// });
 
 module.exports = authRouter;

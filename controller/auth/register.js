@@ -30,7 +30,8 @@ const register = async (req, res, next) => {
               error.status = 500;
               return next(error);
             }
-            res.status(201).json({ message: 'User registered successfully', userName: userData.name });
+            res.status(201).json({status:'success', message: 'User registered successfully', userName: userData.name });
+            next();
           });
         });
       }else{
