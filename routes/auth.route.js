@@ -25,19 +25,20 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 // upload.single('profilePic'),
 
-const createNameChain = () => body('name').trim().notEmpty().escape().withMessage('Name is required').isLength({ min: 3, max: 50 }).withMessage('Name must be atleast 3 characters long and must not exceed 50 characters');
+const nameValidationChain = () => body('name').trim().notEmpty().escape().withMessage('Name is required').isLength({ min: 3, max: 50 }).withMessage('Name must be atleast 3 characters long and must not exceed 50 characters');
 
-const createEmailChain = () => body('email').trim().notEmpty().escape().withMessage('Email is required').isEmail({ allow_ip_domain: false }).withMessage('Enter a valid email id');
+const emailValidationChain = () => body('email').trim().notEmpty().escape().withMessage('Email is required').isEmail({ allow_ip_domain: false }).withMessage('Enter a valid email id');
 
-const createPasswordChain = () => body('password').trim().notEmpty().escape().withMessage('Password is required').isLength({ min: 8, max: 16 }).withMessage('Password must be atleast 8 characters long and must not exceed 50 characters').matches(/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,16}$/).withMessage('Password must contain atleast one number, one lowercase, one uppercase letter and one special character')
+const passwordValidationChain = () => body('password').trim().notEmpty().escape().withMessage('Password is required').matches(/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,20}$/).withMessage('Password must be contain one uppercase, one lowercase, one number, one special charecter and 8 to 20 charecters long')
 
-authRouter.post('/register',createNameChain(),createEmailChain(),createPasswordChain(),register);
+authRouter.post('/register',nameValidationChain(),emailValidationChain(),passwordValidationChain(),register);
 
-authRouter.post('/login',createEmailChain(),createPasswordChain(),login);
+authRouter.post('/login',emailValidationChain(),passwordValidationChain(),login);
 
-authRouter.post('/authenticate', verifysession, authenticate);
+authRouter.post('/authenticate', authenticate);
+
 // authRouter.post('/sessionverify', sessionverify, (req, res) => {
-//   res.lo
+//   req.session.regenerate
 // });
 
 module.exports = authRouter;

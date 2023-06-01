@@ -23,6 +23,7 @@ const login = async (req, res, next) => {
                 return next(error);
             }
             let userId = userData._id.toString();
+            let userProfilePic = userData.profilePic
             req.session.regenerate((err) => {
                 if (err) {
                     let error = new Error('Login failed!');
@@ -30,13 +31,14 @@ const login = async (req, res, next) => {
                     return next(error);
                 }
                 req.session.userId = userId;
+                req.session.userName = userData.name
                 req.session.save((err) => {
                     if (err) {
                         let error = new Error('Login failed!');
                         error.status = 500;
                         return next(error);
                     }
-                    res.status(201).json({status:'success', message: 'Login successfull', userName: userData.name });
+                    res.status(201).json({status:'success', message: 'Login successfull', userName: userData.name, profile_pic:userProfilePic });
                     next();
                 });
             });

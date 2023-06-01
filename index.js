@@ -36,11 +36,12 @@ app.use(session({
         autoRemove: 'native',
     })
 }));
+
+app.use(express.static('public'))
 app.use(requestLogger);
-
 app.use('/api/auth', authRouter);
-
 app.use(errorLogger);
+
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });

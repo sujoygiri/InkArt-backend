@@ -24,6 +24,7 @@ const register = async (req, res, next) => {
             return next(error);
           }
           req.session.userId = userId;
+          req.session.userName = userData.name
           req.session.save((err) => {
             if (err) {
               let error = new Error('Registration failed!');
