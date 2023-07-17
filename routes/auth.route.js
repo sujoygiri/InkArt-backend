@@ -4,10 +4,10 @@ const crypto = require('node:crypto');
 const path = require('node:path');
 const authRouter = require('express').Router();
 
-const register = require('../controller/auth/register');
-const login = require('../controller/auth/login');
-const verifysession = require('../controller/auth/verifysession');
-const authenticate = require('../controller/auth/authenticate');
+const register = require('../controller/auth/register.controller');
+const login = require('../controller/auth/login.controller');
+const verifysession = require('../controller/auth/verifysession.controller');
+const authenticate = require('../controller/auth/authenticate.controller');
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
