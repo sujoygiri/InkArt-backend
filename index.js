@@ -8,8 +8,9 @@ const MongoStore = require('connect-mongo');
 const requestLogger = require('./util/requestLogger');
 const errorLogger = require('./util/errorLogger');
 const authRouter = require('./routes/auth.route');
+const postRouter = require('./routes/post.route')
 
-const PORT = 3000;
+const PORT = 8080;
 
 const app = express();
 
@@ -25,7 +26,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use(session({
     name: '_USID',
-    secret: process.env.SESSION_SECRET,
+    secret: 'process.env.SESSION_SECRET',
     resave: false,
     saveUninitialized: false,
     cookie: { secure: false, maxAge: 24 * 60 * 60 * 1000, sameSite: 'strict', httpOnly: true },
@@ -40,6 +41,7 @@ app.use(session({
 app.use(express.static('public'))
 app.use(requestLogger);
 app.use('/api/auth', authRouter);
+app.use('/api/post', postRouter)
 app.use(errorLogger);
 
 app.listen(PORT, () => {

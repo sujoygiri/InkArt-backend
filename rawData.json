@@ -1,0 +1,383 @@
+[
+  {
+    "id": "O-kubb-H6K",
+    "type": "header",
+    "data": { "text": "How I structure my Angular applications", "level": 1 }
+  },
+  {
+    "id": "QJUSY3YW4o",
+    "type": "image",
+    "data": {
+      "file": {
+        "url": "https://miro.medium.com/v2/resize:fit:828/format:webp/1*E86LPENQVPuAUUhfByRzFw.png"
+      },
+      "caption": "structure angular applications",
+      "withBorder": false,
+      "stretched": false,
+      "withBackground": false
+    }
+  },
+  {
+    "id": "oDkcbhgFYx",
+    "type": "header",
+    "data": { "text": "<b>Introduction</b>", "level": 2 }
+  },
+  {
+    "id": "1cnwWSjjNR",
+    "type": "paragraph",
+    "data": {
+      "text": "Hey there! I am your friendly neighborhood Angular developer. The one who’s always tinkering with code, trying to make things faster, better, and more efficient. I’ve been around the block a few times when it comes to structuring Angular applications, and I’m here to share what I’ve learned with you."
+    }
+  },
+  {
+    "id": "rzFdHB9PU3",
+    "type": "paragraph",
+    "data": {
+      "text": "Now, I don’t want to brag, but I’ve seen my fair share of poorly-structured Angular apps. You know the ones I’m talking about — they’re slow, buggy, and downright painful to work with. But fear not! With the tips and tricks I’m about to share, you’ll be able to structure your Angular applications like a pro."
+    }
+  },
+  {
+    "id": "8B78nmwzrc",
+    "type": "paragraph",
+    "data": {
+      "text": "So, why is structure so important? Well, think about it this way — would you rather have a cluttered, disorganized mess of code to work with, or a streamlined, easy-to-navigate application that just makes sense? I know which one I’d choose (hint: it’s not the mess)."
+    }
+  },
+  {
+    "id": "WO4pmwGrmV",
+    "type": "paragraph",
+    "data": {
+      "text": "By structuring your Angular application properly, you’ll be able to improve its maintainability, make it easier to debug, and even give it a performance boost. Plus, you’ll impress all your developer friends with your well-organized code (and who doesn’t love a little bit of developer street cred?)."
+    }
+  },
+  {
+    "id": "dqj3eN2EAZ",
+    "type": "paragraph",
+    "data": {
+      "text": "So, without further ado, let’s dive in and talk about how to structure your Angular application like a pro."
+    }
+  },
+  { "id": "cJ67UMuk0z", "type": "delimiter", "data": {} },
+  {
+    "id": "1X_pZfS4bm",
+    "type": "header",
+    "data": {
+      "text": "<b>The importance of structure in Angular applications</b>",
+      "level": 2
+    }
+  },
+  {
+    "id": "m55V1iHt0n",
+    "type": "paragraph",
+    "data": {
+      "text": "Let’s talk about the elephant in the room — structure. I know, I know, it’s not the most exciting topic in the world. But trust me, when it comes to Angular applications, structure is the backbone that keeps everything running smoothly."
+    }
+  },
+  {
+    "id": "rte0mTY7sk",
+    "type": "paragraph",
+    "data": {
+      "text": "Picture this: you’re working on an Angular app that’s so disorganized, you can’t even find the files you need without a search party. You’re sifting through endless lines of code, trying to figure out where everything goes and how it all fits together. Sounds like a nightmare? It is."
+    }
+  },
+  {
+    "id": "BfLUVc8EKz",
+    "type": "paragraph",
+    "data": {
+      "text": "But here’s the thing — it doesn’t have to be that way. With a well-structured Angular application, you’ll be able to navigate your code like a pro, making changes quickly and easily. Plus, when you inevitably have to come back to the code months or even years down the line, you’ll be thanking yourself for setting up that solid structure in the first place."
+    }
+  },
+  {
+    "id": "H4i7eiTKyV",
+    "type": "paragraph",
+    "data": {
+      "text": "Not convinced yet? Well, let me break it down for you. Here are just a few of the benefits of a good structure in your Angular application:"
+    }
+  },
+  {
+    "id": "_GHHlNJhtg",
+    "type": "list",
+    "data": {
+      "style": "unordered",
+      "items": [
+        "Maintainability: With a well-organized codebase, you’ll be able to make updates and changes more quickly, with less chance of breaking anything in the process",
+        "Debugging: When something inevitably goes wrong (and trust me, it will), a good structure will make it much easier to track down the problem and fix it",
+        "Performance: By organizing your code properly, you can optimize the performance of your Angular app, making it run faster and more efficiently"
+      ]
+    }
+  },
+  {
+    "id": "wu1fC3cef_",
+    "type": "paragraph",
+    "data": {
+      "text": "Don’t underestimate the power of a good structure in your Angular application. It may not be the most exciting topic, but it’s one that can save you countless hours of frustration and headaches in the long run. Trust me, your future self will thank you for it."
+    }
+  },
+  {
+    "id": "pKF5ZRPF-6",
+    "type": "quote",
+    "data": {
+      "text": "First, solve the problem. Then, write the code.",
+      "caption": "John Johnson",
+      "alignment": "left"
+    }
+  },
+  {
+    "id": "VtN5UvZxBh",
+    "type": "header",
+    "data": { "text": "<b>Modular Structure</b>", "level": 2 }
+  },
+  {
+    "id": "VxA4GOfLbb",
+    "type": "paragraph",
+    "data": {
+      "text": "When it comes to structuring your Angular application, one of the most important things to consider is modularity. By breaking your app into smaller, more manageable modules, you’ll be able to keep your code organized and maintainable. Plus, it makes it easier to reuse code and collaborate with other developers."
+    }
+  },
+  {
+    "id": "JdPKdk8Faw",
+    "type": "paragraph",
+    "data": {
+      "text": "Here’s my suggested modular structure for an Angular app:"
+    }
+  },
+  {
+    "id": "Z7TQ7woLvy",
+    "type": "image",
+    "data": {
+      "file": {
+        "url": "https://miro.medium.com/v2/resize:fit:828/format:webp/1*a5rGJ7IPxgnhK0s46l2DeQ.png"
+      },
+      "caption": "angular folder structure",
+      "withBorder": false,
+      "stretched": false,
+      "withBackground": false
+    }
+  },
+  {
+    "id": "Q1TFqzJnTC",
+    "type": "paragraph",
+    "data": {
+      "text": "The&nbsp;<b>@core module</b>&nbsp;contains services and other code that is used throughout the entire application. This includes things like authentication, logging, and other core functionality. By separating this code into its own module, we can ensure that it’s available to all other parts of the app."
+    }
+  },
+  {
+    "id": "y_fiFlvHs7",
+    "type": "paragraph",
+    "data": {
+      "text": "The&nbsp;<b>@shared module</b>&nbsp;contains components, directives, pipes, models, and other code that is shared between multiple feature modules. This includes things like navigation bars, footer sections, and other UI elements that appear on multiple pages. By separating this code into its own module, we can ensure that it’s easy to reuse and maintain."
+    }
+  },
+  {
+    "id": "B7lVugUPf7",
+    "type": "paragraph",
+    "data": {
+      "text": "The&nbsp;<b>constant-data</b>&nbsp;folder is a good place to store data that remains constant throughout the application. For example, you might have an array of options that is used in multiple places within the app. Instead of duplicating this array in each component or service that uses it, you can define it once in a file within the constant-data folder and then import it wherever it’s needed. This not only reduces duplication of code but also makes it easier to maintain the data if it needs to be updated or changed. It’s a good practice to keep your code DRY (Don’t Repeat Yourself) and the constant-data folder is one way to achieve that."
+    }
+  },
+  {
+    "id": "uIRwdXPRZR",
+    "type": "paragraph",
+    "data": {
+      "text": "In the <b>“feature” </b>module, we have a folder called<b> “components”</b> that we use to store what we call “dumb components”. These are components that don’t have any business logic or state management of their own, but are purely responsible for rendering data that they receive from a parent component."
+    }
+  },
+  {
+    "id": "mOq4nRrKNv",
+    "type": "paragraph",
+    "data": {
+      "text": "For example, let’s say we have a “feature” component that needs to display a list of items. We would create a child component called “item-list” and place it in the “components” folder. The “item-list” component would take an&nbsp;<b>input&nbsp;</b>from the parent <b>“feature”</b> component that contains the list of items to display, and simply render them in the template."
+    }
+  },
+  {
+    "id": "9afEb5Mbh4",
+    "type": "paragraph",
+    "data": {
+      "text": "By keeping these <b>“dumb components”</b> separate from the <b>“smart components”</b> that&nbsp;<b>have&nbsp;business logic</b>&nbsp;and&nbsp;<b>state management</b>, we can create a clearer separation of concerns and make our code easier to maintain and debug. Plus, by giving each component a clear and specific responsibility, we can make our code more reusable and flexible."
+    }
+  },
+  {
+    "id": "rSiBRdvAI1",
+    "type": "paragraph",
+    "data": {
+      "text": "<b>Feature-specific</b>&nbsp;services are services that are used within a specific feature of your application. These services provide functionality that is unique to the feature and are not shared with other parts of the application. By separating feature-specific services into their own folders, you can keep the code for each feature organized and easier to maintain. It also helps to reduce the potential for naming conflicts, as the services are contained within their own folder and are less likely to collide with other services."
+    }
+  },
+  {
+    "id": "2aflv1xAD3",
+    "type": "paragraph",
+    "data": {
+      "text": "Feature-specific services can include data services, which are responsible for retrieving and manipulating data related to the feature, as well as other services that provide specific functionality related to the feature. Using feature-specific services can make your code more modular, easier to understand and maintain, and can help reduce the overall complexity of your application."
+    }
+  },
+  {
+    "id": "ShCQIOWLoT",
+    "type": "header",
+    "data": {
+      "text": "<b>Routing and Lazy Loading in Modular Structure</b>",
+      "level": 2
+    }
+  },
+  {
+    "id": "1Skmqqqcsb",
+    "type": "paragraph",
+    "data": {
+      "text": "When it comes to organizing your Angular application, modular structure is a great way to keep things organized and maintainable. But there are some additional techniques you can use to make your app even more efficient, such as routing and lazy loading."
+    }
+  },
+  {
+    "id": "RjU9euzSLl",
+    "type": "embed",
+    "data": {
+      "service": "youtube",
+      "source": "https://www.youtube.com/watch?v=JjIQq9lh-Bw",
+      "embed": "https://www.youtube.com/embed/JjIQq9lh-Bw",
+      "width": 580,
+      "height": 320,
+      "caption": "lazyloading yt video"
+    }
+  },
+  {
+    "id": "L6wE2jVi0X",
+    "type": "header",
+    "data": {
+      "text": "<b>Creating and Organizing Routes in Modular Structure</b>",
+      "level": 2
+    }
+  },
+  {
+    "id": "TjUe5Io9wT",
+    "type": "paragraph",
+    "data": {
+      "text": "Routing is essentially the process of navigating between different pages or views within your Angular app. And when you’re using a modular structure, it makes sense to keep each feature module’s routes separate from the rest of the app."
+    }
+  },
+  {
+    "id": "-CXbqdDtxr",
+    "type": "paragraph",
+    "data": {
+      "text": "To do this, you can create a separate routing module for each feature module. In that routing module, you can define the routes specific to that feature, so you don’t have to worry about all the routes for the entire app being in one giant file."
+    }
+  },
+  {
+    "id": "WnbiPN9Ykm",
+    "type": "paragraph",
+    "data": {
+      "text": "One of the key benefits of this approach is that it keeps things much more organized and maintainable. You don’t have to scroll through a huge file just to find the routes for a specific feature."
+    }
+  },
+  {
+    "id": "YEbnNfkkSM",
+    "type": "paragraph",
+    "data": {
+      "text": "Before creating a route, you should be familiar with the following:"
+    }
+  },
+  {
+    "id": "D2fCZ2IGQk",
+    "type": "list",
+    "data": {
+      "style": "ordered",
+      "items": [
+        "Basics of components",
+        "Basics of templates<br>",
+        "An Angular app —you can generate a basic Angular application using the Angular CLI&nbsp;<br>"
+      ]
+    }
+  },
+  {
+    "id": "qTk9oFtdTP",
+    "type": "header",
+    "data": {
+      "text": "<b>Benefits of Lazy Loading and How to Implement it in a Modular Structure</b>",
+      "level": 2
+    }
+  },
+  {
+    "id": "QL9iBRzLSv",
+    "type": "paragraph",
+    "data": {
+      "text": "Lazy loading is another technique that can be incredibly useful, especially for larger Angular applications. Essentially, it allows you to load only the parts of your app that are actually needed at runtime, rather than loading everything up front."
+    }
+  },
+  {
+    "id": "9F4QeWsaOM",
+    "type": "paragraph",
+    "data": {
+      "text": "So how do you implement lazy loading in a modular structure? Well, it’s actually pretty straightforward. You can use the&nbsp;loadChildren&nbsp;property of the&nbsp;Routes&nbsp;object to specify a feature module to load lazily."
+    }
+  },
+  {
+    "id": "2jVKYxws_X",
+    "type": "image",
+    "data": {
+      "file": {
+        "url": "https://miro.medium.com/v2/resize:fit:828/format:webp/1*_kvFcTiNZTwdg1yZgTZsvA.png"
+      },
+      "caption": "lazy loading",
+      "withBorder": false,
+      "stretched": false,
+      "withBackground": false
+    }
+  },
+  {
+    "id": "iW0iHeOjG1",
+    "type": "paragraph",
+    "data": {
+      "text": "In other words, when a user tries to navigate to a particular feature, that feature’s module will be loaded only when it’s actually needed. This can dramatically improve the performance of your app, especially for users who might not need to use all of its features."
+    }
+  },
+  {
+    "id": "U7WTrL_YU4",
+    "type": "paragraph",
+    "data": {
+      "text": "Overall, combining modular structure with routing and lazy loading is a powerful way to create an efficient and maintainable Angular application. So if you’re not already using these techniques, it’s definitely worth giving them a try!"
+    }
+  },
+  {
+    "id": "x0YHPl3owK",
+    "type": "linkTool",
+    "data": {
+      "link": "https://angular.io/guide/routing-overview",
+      "meta": {
+        "title": "Angular",
+        "description": "Angular is a platform for building mobile and desktop web applications.\n    Join the community of millions of developers who build compelling user interfaces with Angular.",
+        "image": {
+          "url": "http://localhost:8080/static/images/image-not-found.svg"
+        }
+      }
+    }
+  },
+  { "id": "B011odHz-K", "type": "delimiter", "data": {} },
+  {
+    "id": "dRxJ5FPYVz",
+    "type": "header",
+    "data": { "text": "<b>Conclusion</b>", "level": 2 }
+  },
+  {
+    "id": "TdZmr4Hf4c",
+    "type": "paragraph",
+    "data": {
+      "text": "Well, that’s it for my tips on organizing your Angular application using modular structure. I hope you found this blog post helpful, and that you can use these ideas to create more efficient and maintainable apps."
+    }
+  },
+  {
+    "id": "IkfHEsaZSE",
+    "type": "paragraph",
+    "data": {
+      "text": "Remember, good organization is crucial for any software project, and Angular is no exception. By breaking your app down into modules, organizing your routes, and using lazy loading, you can create an app that’s much easier to work with in the long run."
+    }
+  },
+  {
+    "id": "rbb1cn6cEi",
+    "type": "paragraph",
+    "data": {
+      "text": "If you have any questions or comments about this post, please don’t hesitate to get in touch! You can find me on Twitter at&nbsp;<a href=\"https://twitter.com/Dimitar__Stoev\" target=\"_blank\">@Dimitar__Stoev,</a>&nbsp;or you can reach out to me through my&nbsp;<a href=\"https://stoev.dev/contact\">contact page</a>."
+    }
+  },
+  {
+    "id": "QhDgBweDg7",
+    "type": "paragraph",
+    "data": { "text": "Thanks for reading, and happy coding!" }
+  }
+]

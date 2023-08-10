@@ -11,8 +11,6 @@ const register = async (req, res, next) => {
       const salt = bcrypt.genSaltSync(10);
       const hashedPassword = bcrypt.hashSync(data.password, salt);
       data.password = hashedPassword;
-      data.role = 'user';
-      data.profilePic = 'user.png';
       data.createdAt = Date.now();
       const userData = await userModel.create(data);
       if (userData) {
@@ -31,7 +29,7 @@ const register = async (req, res, next) => {
               error.status = 500;
               return next(error);
             }
-            res.status(201).json({status:'success', message: 'User registered successfully', userName: userData.name });
+            res.status(201).json({status:'success', message: 'User registered successfully', userName: userData.name, profile_pic:userData.profilePic });
             next();
           });
         });
