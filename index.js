@@ -7,6 +7,7 @@ const MongoStore = require('connect-mongo');
 
 const requestLogger = require('./util/requestLogger');
 const errorLogger = require('./util/errorLogger');
+const articaleRoute = require('./routes/articale.route');
 const authRouter = require('./routes/auth.route');
 const postRouter = require('./routes/post.route')
 
@@ -40,6 +41,7 @@ app.use(session({
 
 app.use(express.static('public'))
 app.use(requestLogger);
+app.use('/api/articale',articaleRoute);
 app.use('/api/auth', authRouter);
 app.use('/api/post', postRouter)
 app.use(errorLogger);
