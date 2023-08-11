@@ -23,7 +23,7 @@ const errorLogger = (err, req, res, next) => {
         else {
             res.status(500);
         }
-        res.json({ "message": err.message });
+        res.json({success:0, msg: err.message });
     }
     next();
 }

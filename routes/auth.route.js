@@ -8,6 +8,7 @@ const register = require('../controller/auth/register.controller');
 const login = require('../controller/auth/login.controller');
 const verifysession = require('../controller/auth/verifysession.controller');
 const authenticate = require('../controller/auth/authenticate.controller');
+const logout = require('../controller/auth/logout.controller');
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -34,6 +35,8 @@ const passwordValidationChain = () => body('password').trim().notEmpty().escape(
 authRouter.post('/register',nameValidationChain(),emailValidationChain(),passwordValidationChain(),register);
 
 authRouter.post('/login',emailValidationChain(),passwordValidationChain(),login);
+
+authRouter.delete('/logout',logout);
 
 authRouter.post('/authenticate', authenticate);
 

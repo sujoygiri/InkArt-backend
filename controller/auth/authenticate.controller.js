@@ -1,8 +1,8 @@
 const userModel = require('../../models/users.model');
 
 const authenticate = async (req, res, next) => {
-  let userId = req.session.userId;
-  let userName = req.session.userName;
+  let userId = req?.session?.userId;
+  let userName = req?.session?.userName;
   if (userId && userName) {
     let sessionId = req.session.id;
     let userData = await userModel.findById(userId);
@@ -10,6 +10,7 @@ const authenticate = async (req, res, next) => {
     req.sessionStore.destroy(sessionId, (err) => {
       let errorMessage = 'Session error!';
       if (err) {
+        console.log(err);
         let error = new Error(errorMessage);
         error.status = 500;
         return next(error);
