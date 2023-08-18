@@ -7,7 +7,8 @@ const register = async (req, res, next) => {
   const errors = validationResult(req);
   if (errors.isEmpty()) {
     try {
-      const data = matchedData(req);
+      const data = matchedData(req, {onlyValidData:true});
+      data.username = data.name
       const salt = bcrypt.genSaltSync(10);
       const hashedPassword = bcrypt.hashSync(data.password, salt);
       data.password = hashedPassword;
@@ -22,14 +23,14 @@ const register = async (req, res, next) => {
             return next(error);
           }
           req.session.userId = userId;
-          req.session.userName = userData.name
+          req.session.userName = userData.username
           req.session.save((err) => {
             if (err) {
               let error = new Error('Registration failed!');
               error.status = 500;
               return next(error);
             }
-            res.status(201).json({status:'success', message: 'User registered successfully', userName: userData.name, profile_pic:userData.profilePic });
+            res.status(201).json({status:'success', message: 'User registered successfully', userName: userData.username, profile_pic:userData.profilePic });
             next();
           });
         });

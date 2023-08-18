@@ -9,7 +9,8 @@ const requestLogger = require('./util/requestLogger');
 const errorLogger = require('./util/errorLogger');
 const articaleRoute = require('./routes/articale.route');
 const authRouter = require('./routes/auth.route');
-const postRouter = require('./routes/post.route')
+const postRouter = require('./routes/post.route');
+const userRoute = require('./routes/user.route');
 
 const PORT = 8080;
 
@@ -27,23 +28,26 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use(session({
     name: '_USID',
-    secret: 'process.env.SESSION_SECRET',
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
-    cookie: { secure: false, maxAge: 24 * 60 * 60 * 1000, sameSite: 'strict', httpOnly: true },
+    rolling:true,
+    cookie: { secure: false, maxAge: 5 * 24 * 60 * 60 * 1000, sameSite: 'strict', httpOnly: true },
     store: MongoStore.create({
         client: mongoose.connection.getClient(),
         dbName: 'inkart',
         collectionName: 'sessions',
         autoRemove: 'native',
-    })
+        touchAfter: 24 * 3600
+    }),
 }));
 
 app.use(express.static('public'))
 app.use(requestLogger);
 app.use('/api/articale',articaleRoute);
 app.use('/api/auth', authRouter);
-app.use('/api/post', postRouter)
+app.use('/api/post', postRouter);
+app.use('/api/user',userRoute)
 app.use(errorLogger);
 
 app.listen(PORT, () => {
